@@ -1,5 +1,6 @@
 import './bootstrap.js';
 import './styles/app.scss';
+import './supabase/client';
 
 import { registerReactControllerComponents } from '@symfony/ux-react';
 registerReactControllerComponents(

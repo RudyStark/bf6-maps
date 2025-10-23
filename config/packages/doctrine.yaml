@@ -6,6 +6,16 @@ doctrine:
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '16'
 
+        mapping_types:
+            _text: string        # text[]
+            regclass: string     # réfs d'objets (séquences, indexes, etc.)
+            tsvector: string     # (au cas où)
+            oid: integer         # (au cas où)
+
+        # 2) Limiter le diff au schéma "public" uniquement
+        # (Évite que Doctrine scanne auth.*, storage.*, pg_*, etc.)
+        schema_filter: '~^public\..*$~'
+
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
     orm:
